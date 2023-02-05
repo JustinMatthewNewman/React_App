@@ -32,7 +32,6 @@ function header() {
                     objectFit="contain"
                     />
             </div>
-        
         </div>
 
 
@@ -68,7 +67,7 @@ function header() {
             <UserGroupIcon className="navBtn"/>
             <HeartIcon className="navBtn"/>
 
-            <img src="https://links.papareact.com/3ke" alt="profile_pic" className="h-10 rounded-full cursor-pointer"/>
+            <img src="http://44.211.91.72/img/justin.jpg" alt="profile_pic" className="h-10 rounded-full cursor-pointer"/>
         </div>
 
       </div>
