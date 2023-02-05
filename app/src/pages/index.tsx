@@ -1,5 +1,10 @@
 import Head from 'next/head'
+
 import Header from "../../components/header.js";
+import Feed from "../../components/feed.js";
+
+
+
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -18,9 +23,10 @@ export default function Home() {
 
       {/* Header */}
       <Header />
-
+      
       {/* Feed */}
 
+      <Feed />
       {/** Modal */}
 
 
