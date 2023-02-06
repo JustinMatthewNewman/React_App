@@ -1,17 +1,24 @@
 import React from 'react'
 
+import { signOut, useSession } from "next-auth/react"
+
 function miniprofile() {
+
+  const { data: session } = useSession();
+  console.log(session);
+
+  
   return (
     <div className="flex items-center justify-between mt-14 ml-10">
       <img 
         className="w-16 h-16 rounded-full border p-[2px]" 
-        src="http://44.211.91.72/img/justin.jpg" alt="justin" 
+        src={session?.user?.image} alt="justin" 
         />
         <div className="flex-1 mx-4">
-          <h2 className="font-bold">  Hello, world! </h2>
-          <h3 className="text-sm text-gray-400"> This is cool stuff. </h3>
+          <h2 className="font-bold">{session?.user?.username}</h2>
+          <h3 className="text-sm text-gray-400"> Welcome to CS code </h3>
         </div>
-        <button>Sign out</button>
+        <button onClick={signOut} className="text-blue-400 text-sm font-semibold cursor-pointer hover:scale-110 transition transform duration-200 ease-out">Sign out</button>
     </div>
   )
 }

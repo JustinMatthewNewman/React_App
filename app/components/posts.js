@@ -6,7 +6,7 @@ const posts_list = [
         id: '123',
         username: 'lib',
         userimage: 'http://44.211.91.72/img/libby.jpg',
-        media: 'http://44.211.91.72/img/libby.jpg',
+        media: 'http://44.211.91.72/img/hw1.jpg',
         caption: 'justin is sexy',
     },
     {
