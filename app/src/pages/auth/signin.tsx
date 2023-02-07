@@ -1,6 +1,6 @@
 import React from 'react'
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react";
-import Header from '../../../components/header.js'
+import Header from '../../../components/Header'
 
 function signIn( { providers }: { providers: Object } ) {
   console.log(providers)
