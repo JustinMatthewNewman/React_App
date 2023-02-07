@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
-import Header from "../../components/header.js";
-import Feed from "../../components/feed.js";
-import Modal from "../../components/modal.js";
+import Header from "../../components/Header.js";
+import Feed from "../../components/Feed.js";
+import Modal from "../../components/Modal.js";
 
 
 
