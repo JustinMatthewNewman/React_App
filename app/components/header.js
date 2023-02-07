@@ -1,6 +1,9 @@
 import React from 'react'
 import Image from "next/image"
 import { signIn, signOut, useSession } from "next-auth/react"
+import { useRouter } from "next/router"
+import { useRecoilState } from "recoil"
+import { modalState } from "../atoms/modalAtom.js"
 
 import {
     HomeIcon,
@@ -14,6 +17,8 @@ import {
 
 function header() {
   const {data: session} = useSession();
+  const [open, setOpen] = useRecoilState(modalState);
+  const router = useRouter();
 
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50">
@@ -21,14 +26,15 @@ function header() {
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto ">
 
         {/*Left*/}
-        <div className="relative hidden lg:inline-grid w-24 cursor-pointer">
+
+        <div onClick={() => router.push('/')} className="relative hidden lg:inline-grid w-24 cursor-pointer">
             <Image src="http://links.papareact.com/ocw" 
             layout="fill"
             objectFit="contain"
             />
         </div>
 
-        <div className="flex items-center"> 
+        <div onClick={() => router.push('/')} className="flex items-center"> 
             <div className="relative w-10 h-10 lg:hidden flex-shrink-0 flex cursor-pointer "> 
                 <Image src="http://links.papareact.com/jjm" 
                     layout="fill"
@@ -54,7 +60,7 @@ function header() {
 
 
         <div className="flex items-center justify-end space-x-4">
-            <HomeIcon className="navBtn"/>
+            <HomeIcon onClick={() => router.push('/')} className="navBtn"/>
             <MenuIcon className="h-6 md:hidden cursor-pointer"/>
 
             {session ? (
@@ -67,7 +73,7 @@ function header() {
                 </div>
             </div>
 
-            <PlusCircleIcon className="navBtn"/>
+            <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn"/>
             <UserGroupIcon className="navBtn"/>
             <HeartIcon className="navBtn"/>
 
@@ -75,7 +81,7 @@ function header() {
             </>
 
             ): (
-                <button onClick={signIn}>
+                <button className="text-blue-400" onClick={signIn}>
                     Sign In
                 </button>
             )}

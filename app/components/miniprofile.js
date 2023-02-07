@@ -15,7 +15,7 @@ function miniprofile() {
         src={session?.user?.image} alt="justin" 
         />
         <div className="flex-1 mx-4">
-          <h2 className="font-bold">{session?.user?.username}</h2>
+          <h2 className="text-gray-800 font-bold">{session?.user?.username}</h2>
           <h3 className="text-sm text-gray-400"> Welcome to CS code </h3>
         </div>
         <button onClick={signOut} className="text-blue-400 text-sm font-semibold cursor-pointer hover:scale-110 transition transform duration-200 ease-out">Sign out</button>

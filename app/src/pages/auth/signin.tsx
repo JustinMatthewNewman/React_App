@@ -5,8 +5,10 @@ import Header from '../../../components/header.js'
 function signIn( {providers} ) {
   return (
     <>
+    <div className="h-100 bg-white">
+
     <Header />
-    <div className="flex flex-col items-center justify-center mt-40 py-20">
+    <div className="flex flex-col items-center h-100 justify-center mt-10 py-20 ">
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           <button className="p-3 bg-blue-500 rounded-lg text-white" onClick={() => SignIntoProvider(provider.id, { callbackUrl: "/"})}>
@@ -15,6 +17,7 @@ function signIn( {providers} ) {
         </div>
       ))}
 
+    </div>
     </div>
     </>
   )
