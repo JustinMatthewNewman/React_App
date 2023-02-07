@@ -1,12 +1,12 @@
 import React from 'react'
-import Stories from './stories.js'
-import Posts from './posts.js'
-import MiniProfile from './miniprofile.js'
-import Suggestions from './suggestions.js'
+import Stories from './Stories.js'
+import Posts from './Posts.js'
+import MiniProfile from './Miniprofile.js'
+import Suggestions from './Suggestions.js'
 
 import { useSession } from "next-auth/react"
 
-function feed() {
+function Feed() {
   const {data: session} = useSession();
   return (
     <main className={`grid grid-cols-1 md:grid-cols-2 md:max-w-3xl xl:grid-cols-3 xl:max-w-6xl mx-auto ${!session && "!grid-cols-1 !max-w-3xl"}`}>
@@ -33,4 +33,4 @@ function feed() {
   )
 }
 
-export default feed
+export default Feed

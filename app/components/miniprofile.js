@@ -2,7 +2,7 @@ import React from 'react'
 
 import { signOut, useSession } from "next-auth/react"
 
-function miniprofile() {
+function Miniprofile() {
 
   const { data: session } = useSession();
   console.log(session);
@@ -23,4 +23,4 @@ function miniprofile() {
   )
 }
 
-export default miniprofile
+export default Miniprofile

@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 
 
 
-function suggestions() {
+function Suggestions() {
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
@@ -47,4 +47,4 @@ function suggestions() {
   )
 }
 
-export default suggestions
+export default Suggestions

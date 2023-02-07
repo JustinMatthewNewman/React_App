@@ -1,13 +1,13 @@
 import { faker } from '@faker-js/faker';
 import React from 'react'
 import { useEffect, useState } from "react";
-import Story from "./story.js";
+import Story from "./Story.js";
 
 import { useSession } from "next-auth/react"
 
 
 
-function stories() {
+function Stories() {
     const [suggestions, setSuggestions] = useState([]);
 
     const {data: session} = useSession();
@@ -38,4 +38,4 @@ function stories() {
   );
 }
 
-export default stories
+export default Stories

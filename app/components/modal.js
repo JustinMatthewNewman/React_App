@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilState } from "recoil"
-import { modalState } from "../atoms/modalAtom.js"
+import { modalState } from "../atoms/ModalAtom.js"
 import { Dialog, Transition } from "@headlessui/react"
 import { CameraIcon } from "@heroicons/react/outline"
 import { Fragment, useRef, useState } from "react"
@@ -9,7 +9,7 @@ import { addDoc, collection, serverTimestamp, updateDoc, doc } from "@firebase/f
 import { useSession } from "next-auth/react"
 import {ref, getDownloadURL, uploadString } from "@firebase/storage"
 
-function modal() {
+function Modal() {
     const {data:session} = useSession();
     const [open, setOpen] = useRecoilState(modalState);
     const filePickerRef = useRef(null);
@@ -113,4 +113,4 @@ function modal() {
   )
 }
 
-export default modal
+export default Modal

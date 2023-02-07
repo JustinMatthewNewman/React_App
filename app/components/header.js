@@ -3,7 +3,7 @@ import Image from "next/image"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { useRecoilState } from "recoil"
-import { modalState } from "../atoms/modalAtom.js"
+import { modalState } from "../atoms/ModalAtom.js"
 
 import {
     HomeIcon,
@@ -15,7 +15,7 @@ import {
     MenuIcon,
 } from "@heroicons/react/outline";
 
-function header() {
+function Header() {
   const {data: session} = useSession();
   const [open, setOpen] = useRecoilState(modalState);
   const router = useRouter();
@@ -93,4 +93,4 @@ function header() {
   )
 }
 
-export default header
+export default Header

@@ -18,7 +18,7 @@ import Moment from "react-moment"
 
 import React from 'react'
 
-function post({id, username, userimage, media, caption}) {
+function Post({id, username, userimage, media, caption}) {
   const { data: session } = useSession();
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -145,4 +145,4 @@ function post({id, username, userimage, media, caption}) {
   )
 }
 
-export default post;
+export default Post;

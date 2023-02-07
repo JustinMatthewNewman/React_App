@@ -1,11 +1,11 @@
 import React from 'react'
-import Post from './post.js'
+import Post from './Post.js'
 import { useState, useEffect } from 'react'
 import { db, storage } from "../firebase.js"
 import { collection, onSnapshot, orderBy, query } from "@firebase/firestore"
 
 
-function posts() {
+function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => 
       onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), (snapshot) => {
@@ -30,4 +30,4 @@ function posts() {
   );
 }
 
-export default posts
+export default Posts
