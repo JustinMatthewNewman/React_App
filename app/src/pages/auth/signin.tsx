@@ -1,9 +1,8 @@
 import React from 'react'
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react";
-import Header from '../../../components/Header'
+import Header from '../../../components/Header.js'
 
 function signIn( { providers }: { providers: Object } ) {
-  console.log(providers)
   return (
     <>
     <div className="h-100 bg-white">
