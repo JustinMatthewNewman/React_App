@@ -81,9 +81,8 @@ function Header() {
             </>
 
             ): (
-                <button className="text-blue-400" onClick={signIn}>
-                    Sign In
-                </button>
+                <PlusCircleIcon onClick={signIn} className="navBtn"/>
+
             )}
         </div>
 

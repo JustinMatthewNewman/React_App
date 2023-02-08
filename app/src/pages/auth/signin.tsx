@@ -6,9 +6,9 @@ function signIn( { providers }: { providers: Object } ) {
     <>
       <Header />
       <div className="flex flex-col items-center justify-center min-h-screen py-2 -mt-55 px-14 text-center">
-        <img className="w-80" src="http://links.papareact.com/ocw" alt="" />
+        <img className="w-80" src="" alt="" />
         <p className="font-xs italic">
-          This is not a REAL app, it is built for educational purposes only
+          Welcome to CS code! The best place for all developers to learn about each other and interact.
         </p>
 
         <div className="mt-40">
