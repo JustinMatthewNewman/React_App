@@ -64,7 +64,7 @@ function Post({id, username, userimage, media, caption}) {
     });
    };
     return (
-    <div className="bg-white my-7 border rounded-sm">
+    <div className="bg-slate-900 my-7 border rounded-sm text-gray-400">
 
     <div className="flex items-center p-5">
     {/* Header */}
@@ -113,12 +113,12 @@ function Post({id, username, userimage, media, caption}) {
     {/* comments  */}
 
     {comments.length > 0 && (
-      <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
+      <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin text-gray-400">
         {comments.map((comment) => (
           <div key={comment.id} className="flex items-center space-x-2 mb-3">
             <img className="h-7 rounded-full" src={comment.data().userImage} alt="" />
             <p>
-              <span className="font-bold">
+              <span className="font-bold text-white-400">
                 {comment.data().username}
               </span>{" "}
               {comment.data().comment}

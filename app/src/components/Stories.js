@@ -22,7 +22,7 @@ function Stories() {
     }, []);
     return (
     <div className="flex space-x-2 p-6 
-    bg-white mt-8 border-gray-200 border 
+    bg-slate-900 mt-8 border 
     rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black">
       {session && (
         <Story img={session?.user?.image} username={session?.user?.username} />

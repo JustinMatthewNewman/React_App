@@ -21,25 +21,25 @@ function Header() {
   const router = useRouter();
 
   return (
-    <div className="shadow-sm border-b bg-white sticky top-0 z-50">
+    <div className="shadow-sm border-slate-300 bg-slate-900 sticky top-0 z-50">
 
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto ">
 
         {/*Left*/}
 
         <div onClick={() => router.push('/')} className="relative hidden lg:inline-grid w-24 cursor-pointer">
-            <Image src="http://links.papareact.com/ocw" 
+            {/* <Image src="http://links.papareact.com/ocw" 
             layout="fill"
             objectFit="contain"
-            />
+            /> */}
         </div>
 
         <div onClick={() => router.push('/')} className="flex items-center"> 
             <div className="relative w-10 h-10 lg:hidden flex-shrink-0 flex cursor-pointer "> 
-                <Image src="http://links.papareact.com/jjm" 
+                {/* <Image src="http://links.papareact.com/jjm" 
                     layout="fill"
                     objectFit="contain"
-                    />
+                    /> */}
             </div>
         </div>
 
@@ -61,7 +61,7 @@ function Header() {
 
         <div className="flex items-center justify-end space-x-4">
             <HomeIcon onClick={() => router.push('/')} className="navBtn"/>
-            <MenuIcon className="h-6 md:hidden cursor-pointer"/>
+            <MenuIcon className="h-6 md:hidden cursor-pointer text-white"/>
 
             {session ? (
                 <>
@@ -69,7 +69,7 @@ function Header() {
 
                 <PaperAirplaneIcon className="navBtn rotate-45"/>
                 <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white"> 
-                73
+                99+
                 </div>
             </div>
 

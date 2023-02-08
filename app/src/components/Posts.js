@@ -13,7 +13,6 @@ function Posts() {
       }),
 [db]);
 
-
   return (
     <div>
       {posts.map((post) => (
@@ -21,7 +20,7 @@ function Posts() {
         key={post.id}
         id={post.id}
         username={post.data().username}
-        userimage={post.data().userimage}
+        userimage={post.data().profileImg}
         media={post.data().image}
         caption={post.data().caption}
         />
