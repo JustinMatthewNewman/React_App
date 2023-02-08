@@ -1,7 +1,7 @@
 import React from 'react'
 import Post from './Post.js'
 import { useState, useEffect } from 'react'
-import { db, storage } from "../firebase.js"
+import { db, storage } from "../../firebase.js"
 import { collection, onSnapshot, orderBy, query } from "@firebase/firestore"
 
 

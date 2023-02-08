@@ -12,7 +12,7 @@ import { addDoc, collection, onSnapshot, serverTimestamp, query, orderBy, setDoc
 import {HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
-import { db } from "../firebase.js"
+import { db } from "../../firebase.js"
 import Moment from "react-moment"
 
 
