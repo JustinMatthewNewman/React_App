@@ -1,13 +1,13 @@
 import React from 'react'
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react";
-import Header from '../../../components/Header.js'
+//import Header from '../../../components/Header.js'
 
 function signIn( { providers }: { providers: Object } ) {
   return (
     <>
     <div className="h-100 bg-white">
 
-    <Header />
+    {/* <Header /> */}
     <div className="flex flex-col items-center h-100 justify-center mt-10 py-20 ">
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
