@@ -14,7 +14,6 @@ export default function App({ Component, pageProps }: AppProps) {
     margin: "0 auto",
     borderColor: "red",
     height: "1000px",
-    width: "1000px",
   };
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
     }, 2000)
   }, [])
   return (
-    <div className="bg-slate-800 h-full w-full">
+    <div className="bg-slate-800 h-full w-full overflow-y-scroll scrollbar-hide">
 
       {
         loading ?
