@@ -9,20 +9,16 @@ const DM = () => {
   if (status === 'loading') {
     return <div>Loading...</div>;
   }
-
   if (!session) {
-    router.push('/login');
-    return null;
+    router.push("/login");
   }
 
-  const { user } = session;
+  const user = session?.user;
 
   return (
     <div>
-      <h1>DM's</h1>
-      <img src={user.image} alt="Profile" />
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
+      <h1>DM's coming soon</h1>
+      {/* <img src={user?.image} alt="Profile" /> */}
     </div>
   );
 };
