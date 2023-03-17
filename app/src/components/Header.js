@@ -67,14 +67,14 @@ function Header() {
                 <>
                 <div className="relative navBtn">
 
-                <PaperAirplaneIcon className="navBtn rotate-45"/>
+                <PaperAirplaneIcon className="navBtn rotate-45" onClick={() => router.push('/dm')} />
                 <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white"> 
                 99+
                 </div>
             </div>
 
             <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn"/>
-            <UserGroupIcon className="navBtn"/>
+            <UserGroupIcon  onClick={() => router.push('/myProfile')} className="navBtn"/>
             <HeartIcon className="navBtn"/>
 
             <img onClick={signOut} src={session?.user?.image} alt="profile_pic" className="h-10 rounded-full cursor-pointer"/>

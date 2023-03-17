@@ -7,7 +7,7 @@ import {
     PaperAirplaneIcon,
 } from "@heroicons/react/outline";
 
-import { addDoc, collection, onSnapshot, serverTimestamp, query, orderBy, setDoc, doc, deleteDoc, findIndex } from "@firebase/firestore"
+import { getDoc, addDoc, collection, onSnapshot, serverTimestamp, query, orderBy, setDoc, doc, deleteDoc, findIndex } from "@firebase/firestore"
 
 import {HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 import { useSession } from "next-auth/react";
@@ -24,6 +24,14 @@ function Post({id, username, userimage, media, caption}) {
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleDelete = async () => {
+    await deleteDoc(doc(db, 'posts', id));
+    setShowModal(false);
+  };
+  
 
   useEffect(() => 
       onSnapshot(query(collection(db, 'posts', id, "comments"), orderBy('timestamp', 'desc')), (snapshot) => setComments(snapshot.docs)),
@@ -75,7 +83,26 @@ function Post({id, username, userimage, media, caption}) {
       />
       <p className="flex-1 font-bold">
         {username}</p>
-      <DotsHorizontalIcon className="h-5" />
+        <DotsHorizontalIcon 
+  className="h-5" 
+  onClick={async () => {
+    // Check if current user is the author of the post
+    const postRef = doc(db, 'posts', id);
+    const postDoc = await getDoc(postRef);
+    if (postDoc.exists() && postDoc.data().username === session.user.username) {
+      setShowModal(true);
+    }
+  }} 
+/>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>Delete this post?</p>
+            <button onClick={handleDelete}>OK</button>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
 
     {/* media */}
