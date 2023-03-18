@@ -147,7 +147,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
     {likes.length > 0 && (
       <p>{likes.length} likes</p>
     )}
-    <span className="font-bold mr-1"> {username} </span> {caption} </p>
+    <span onClick={() => router.push(`/userProfile?uid=${user_id}`)} className="font-bold mr-1"> {username} </span> {caption} </p>
     
     {/* comments  */}
 
