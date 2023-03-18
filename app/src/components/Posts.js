@@ -23,6 +23,7 @@ function Posts() {
         userimage={post.data().profileImg}
         media={post.data().image}
         caption={post.data().caption}
+        user_id={post.data().user_id}
         />
       ))}
     </div>

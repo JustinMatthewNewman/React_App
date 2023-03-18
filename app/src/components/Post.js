@@ -14,11 +14,13 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { db } from "../../firebase.js"
 import Moment from "react-moment"
+import { useRouter } from "next/router"
+
 
 
 import React from 'react'
 
-function Post({id, username, userimage, media, caption}) {
+function Post({id, username, userimage, media, caption, user_id}) {
   const { data: session } = useSession();
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -26,6 +28,9 @@ function Post({id, username, userimage, media, caption}) {
   const [hasLiked, setHasLiked] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
+
+  const router = useRouter();
+
 
   const handleDelete = async () => {
     await deleteDoc(doc(db, 'posts', id));
@@ -69,6 +74,7 @@ function Post({id, username, userimage, media, caption}) {
       username: session.user.username,
       userImage: session.user.image,
       timestamp: serverTimestamp(),
+      uid: session.user.uid,
     });
    };
     return (
@@ -81,16 +87,21 @@ function Post({id, username, userimage, media, caption}) {
       className="rounded-full h-12 w-12 object-contain border p-1 mr-3" 
       alt="" 
       />
-      <p className="flex-1 font-bold">
-        {username}</p>
+<p onClick={() => router.push(`/userProfile?uid=${user_id}`)} className="flex-1 font-bold">
+  {username}
+</p>
+
         <DotsHorizontalIcon 
   className="h-5" 
   onClick={async () => {
     // Check if current user is the author of the post
-    const postRef = doc(db, 'posts', id);
-    const postDoc = await getDoc(postRef);
-    if (postDoc.exists() && postDoc.data().username === session.user.username) {
-      setShowModal(true);
+    if (session) {
+
+      const postRef = doc(db, 'posts', id);
+      const postDoc = await getDoc(postRef);
+      if (postDoc.exists() && postDoc.data().user_id === session.user.uid) {
+        setShowModal(true);
+      }
     }
   }} 
 />
@@ -99,6 +110,7 @@ function Post({id, username, userimage, media, caption}) {
           <div className="modal-content">
             <p>Delete this post?</p>
             <button onClick={handleDelete}>OK</button>
+            &nbsp;
             <button onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </div>
@@ -144,7 +156,7 @@ function Post({id, username, userimage, media, caption}) {
         {comments.map((comment) => (
           <div key={comment.id} className="flex items-center space-x-2 mb-3">
             <img className="h-7 rounded-full" src={comment.data().userImage} alt="" />
-            <p>
+            <p onClick={() => router.push(`/userProfile?uid=${comment.data().uid}`)}>
               <span className="font-bold text-white-400">
                 {comment.data().username}
               </span>{" "}

@@ -5,12 +5,12 @@ import Head from 'next/head'
 
 import Header from "../components/Header";
 import HeaderImage from '../components/HeaderImage';
-import Profile from '../components/MyProfile';
+import Profile from '../components/UserProfile';
 
 
-const MyProfile = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+const UserProfile = () => {
+//   const { data: session, status } = useSession();
+//   const router = useRouter();
 
 //   if (status === 'loading') {
 //     return <div>Loading...</div>;
@@ -21,9 +21,6 @@ const MyProfile = () => {
 //   }
 
 //   const user = session?.user;
-
-const { uid } = router.query;
-console.log(uid)
 
   return (
     <>
@@ -43,4 +40,4 @@ console.log(uid)
   );
 };
 
-export default MyProfile;
+export default UserProfile;

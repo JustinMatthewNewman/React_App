@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/ModalAtom.js"
 import { Dialog, Transition } from "@headlessui/react"
@@ -31,7 +31,8 @@ function Modal() {
             username: session.user.username,
             caption: captionRef.current.value,
             profileImg: session.user.image,
-            timestamp: serverTimestamp()  
+            timestamp: serverTimestamp(),
+            user_id: session.user.uid
         })
         console.log("New Doc added with id", docRef.id);
 
