@@ -28,26 +28,28 @@ const UserProfile = ( ) => {
 
   const { uid } = router.query;
 
-  useEffect(() => {
-    let unsubscribe;
-    if (session) {
-      const q = query(
-        collection(db, "posts"),
-        where("user_id", "==", uid),
-        orderBy("timestamp", "desc")
-      );
-      unsubscribe = onSnapshot(q, (snapshot) => {
-        setPosts(snapshot.docs);
-        setIsLoading(false);
-      });
-    } else {
-      setIsLoading(false);
-    }
-    return () => unsubscribe && unsubscribe();
-  }, [session]);
+//   useEffect(() => {
+//     let unsubscribe;
+//     if (session) {
+//       const q = query(
+//         collection(db, "posts"),
+//         where("user_id", "==", uid),
+//         orderBy("timestamp", "desc")
+//       );
+//       unsubscribe = onSnapshot(q, (snapshot) => {
+//         setPosts(snapshot.docs);
+//         setIsLoading(false);
+//       });
+//     } else {
+//       setIsLoading(false);
+//     }
+//     return () => unsubscribe && unsubscribe();
+//   }, [session]);
 
 useEffect(() => {
     const getUser = async () => {
+        let unsubscribe;
+
       if (uid) {
         const q = query(collection(db, "users"), where("user_id", "==", uid));
         const querySnapshot = await getDocs(q);
@@ -55,6 +57,16 @@ useEffect(() => {
           const userDoc = querySnapshot.docs[0];
           setUser(userDoc.data());
         }
+        const qu = query(
+            collection(db, "posts"),
+            where("user_id", "==", uid),
+            orderBy("timestamp", "desc")
+          );
+          unsubscribe = onSnapshot(qu, (snapshot) => {
+            setPosts(snapshot.docs);
+            setIsLoading(false);
+          });
+            setIsLoading(false);
       }
     };
     getUser();
@@ -75,7 +87,7 @@ useEffect(() => {
               <div className="flex-shrink-0">
                 <img
                   className="h-14 w-14 rounded-full p-[1.5px] border-purple-500 border-2 object-contain cursor-pointer hover:scale-110 transition transform duration-200 ease-out"
-                  src={user?.image}
+                  src={user?.profileImg}
                   alt="Profile Pic"
                 />
               </div>
@@ -117,6 +129,7 @@ useEffect(() => {
             <div className="grid grid-cols-3 gap-4 mt-8">
               {posts.map((post) => (
                   <div key={post.id}>
+                    {console.log(post.data())}
                 <img
                   className="w-full h-full object-cover"
                   src={post.data().image}
