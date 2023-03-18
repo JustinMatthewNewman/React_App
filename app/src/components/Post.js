@@ -84,7 +84,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
     });
    };
     return (
-    <div className="bg-slate-900 my-7 border rounded-sm text-gray-400">
+    <div className="bg-slate-900 my-7 rounded-lg text-gray-400">
 
     <div className="flex items-center p-5">
     {/* Header */}
