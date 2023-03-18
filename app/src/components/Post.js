@@ -37,6 +37,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
       signIn();
     } catch (error) {
       console.error(error);
+      alert("Sorry, a lot of people are signing in right now. Please try again in a couple seconds.");
       router.push('/');
     }
   };
