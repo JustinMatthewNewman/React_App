@@ -73,8 +73,8 @@ function Header() {
                 onClick={() => router.push("/dm")}
               >
                 <PaperAirplaneIcon className="navBtn rotate-45" />
-                <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
-                  99+
+                <div className="absolute -top-1 -right-2 text-xs w-4 h-4 rounded-full flex items-center justify-center animate-pulse text-white" style={{backgroundImage: "linear-gradient(45deg, #8B5CF6, #EC4899, #FFB946, #F1C21B)"}}>
+                †
                 </div>
               </div>
 

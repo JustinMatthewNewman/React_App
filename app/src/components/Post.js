@@ -8,9 +8,9 @@ import {
 } from "@heroicons/react/outline";
 
 import { getDoc, addDoc, collection, onSnapshot, serverTimestamp, query, orderBy, setDoc, doc, deleteDoc, findIndex } from "@firebase/firestore"
+import { signIn, useSession } from "next-auth/react";
 
 import {HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
-import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { db } from "../../firebase.js"
 import Moment from "react-moment"
@@ -19,6 +19,7 @@ import { useRouter } from "next/router"
 
 
 import React from 'react'
+
 
 function Post({id, username, userimage, media, caption, user_id}) {
   const { data: session } = useSession();
@@ -128,23 +129,37 @@ function Post({id, username, userimage, media, caption, user_id}) {
 
 
     {/* button */}
-    {session && (
+    {session ?  <div className="flex justify-between px-4 pt-4 pb-4">
 
-    <div className="flex justify-between px-4 pt-4 pb-4">
-
-        <div className="flex space-x-4">
-          
-        {hasLiked ? (
-              <HeartIconFilled onClick={likePost} className="btn text-red-500"/>
-            ) : (
-              <HeartIconFilled onClick={likePost} className="btn"/>
-            )}
-            <ChatIcon className="btn"/>
-            <PaperAirplaneIcon className="btn"/>
-        </div>
-
-        {/* <BookmarkIcon className="btn" /> */}
+<div className="flex space-x-4">
+  
+{hasLiked ? (
+      <HeartIconFilled onClick={likePost} className="btn text-red-500"/>
+    ) : (
+      <HeartIconFilled onClick={likePost} className="btn"/>
+    )}
+    <ChatIcon className="btn"/>
+    {/* <PaperAirplaneIcon className="btn" onClick={handleClick} /> */}
     </div>
+
+{/* <BookmarkIcon className="btn" /> */}
+</div> : (
+
+<div className="flex justify-between px-4 pt-4 pb-4">
+
+<div className="flex space-x-4">
+  
+{hasLiked ? (
+      <HeartIconFilled onClick={signIn} className="btn text-red-500"/>
+    ) : (
+      <HeartIconFilled onClick={signIn} className="btn"/>
+    )}
+    <ChatIcon onClick={signIn} className="btn"/>
+    <PaperAirplaneIcon className="btn" onClick={signIn} />
+    </div>
+
+{/* <BookmarkIcon className="btn" /> */}
+</div>
     )}
     
     {/* captions */}
@@ -180,7 +195,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
 
     <form className="flex items-center p-4">
         <EmojiHappyIcon className="h-7"/>
-        <input value={comment} onChange={e => setComment(e.target.value)} type="text" className="border-none flex-1 focus:ring-0 outline-none" placeholder=" Add a comment..."/>
+        <input value={comment} onChange={e => setComment(e.target.value)} type="text" className="border-none flex-1 focus:ring-0 outline-none bg-transparent" placeholder=" Add a comment..."/>
         <button type="submit" disabled={(!comment.trim())} onClick={sendComment} className="font-semibold text-blue-400">Post</button>
 
     </form>
