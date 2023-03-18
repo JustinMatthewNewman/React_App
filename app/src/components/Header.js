@@ -24,6 +24,15 @@ function Header() {
   const [open, setOpen] = useRecoilState(modalState);
   const router = useRouter();
 
+  const handleSignInClick = () => {
+    try {
+      signIn();
+    } catch (error) {
+      console.error(error);
+      router.push('/');
+    }
+  };
+
   return (
     <div className="shadow-sm border-slate-300 bg-slate-900 top-0 z-50 fixed w-screen">
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto ">
@@ -92,14 +101,14 @@ function Header() {
 
               {/* <ThemeToggle/> */}
               <img
-                onClick={signOut}
+                onClick={() => router.push("/myProfile")}
                 src={session?.user?.image}
                 alt="profile_pic"
                 className="h-10 rounded-full cursor-pointer"
               />
             </>
           ) : (
-            <PlusCircleIcon onClick={signIn} className="navBtn" />
+            <PlusCircleIcon onClick={handleSignInClick} className="navBtn" />
           )}
         </div>
       </div>

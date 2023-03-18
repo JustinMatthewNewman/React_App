@@ -32,6 +32,15 @@ function Post({id, username, userimage, media, caption, user_id}) {
 
   const router = useRouter();
 
+  const handleSignInClick = () => {
+    try {
+      signIn();
+    } catch (error) {
+      console.error(error);
+      router.push('/');
+    }
+  };
+
 
   const handleDelete = async () => {
     await deleteDoc(doc(db, 'posts', id));
@@ -150,12 +159,12 @@ function Post({id, username, userimage, media, caption, user_id}) {
 <div className="flex space-x-4">
   
 {hasLiked ? (
-      <HeartIconFilled onClick={signIn} className="btn text-red-500"/>
+      <HeartIconFilled onClick={handleSignInClick} className="btn text-red-500"/>
     ) : (
-      <HeartIconFilled onClick={signIn} className="btn"/>
+      <HeartIconFilled onClick={handleSignInClick} className="btn"/>
     )}
-    <ChatIcon onClick={signIn} className="btn"/>
-    <PaperAirplaneIcon className="btn" onClick={signIn} />
+    <ChatIcon onClick={handleSignInClick} className="btn"/>
+    <PaperAirplaneIcon className="btn" onClick={handleSignInClick} />
     </div>
 
 {/* <BookmarkIcon className="btn" /> */}
