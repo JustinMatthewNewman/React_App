@@ -67,7 +67,8 @@ const MyProfile = () => {
               {/*Mini Profile */}
               <MiniProfile />
               <div className="flex justify-center p-5">
-                <Buttons />
+              <Buttons uid={session?.user?.uid} currentUserUid={session?.user?.uid} />
+                
               </div>
               {/*Suggestions */}
               <Suggestions />
@@ -94,7 +95,11 @@ const MyProfile = () => {
               </div>
             </div>
             <div className="xl:hidden flex flex-col p-3">
-              <Buttons />
+              <div className="flex justify-between mt-8">
+              <Buttons uid={session?.user?.uid} currentUserUid={session?.user?.uid} />
+              <button onClick={signOut} className="text-blue-400 text-sm font-semibold cursor-pointer hover:scale-110 transition transform duration-200 ease-out">Sign out</button>
+
+              </div>
             </div>
             <div className="flex justify-between mt-8">
               <div className="text-center">

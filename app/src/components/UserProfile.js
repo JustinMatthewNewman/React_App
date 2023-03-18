@@ -23,28 +23,16 @@ const UserProfile = ( ) => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const { data: session } = useSession();
+
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);  const { data: session } = useSession();
   const router = useRouter();
+
+  const [follows, setFollows] = useState([]);
+  const [isFollowing, setHasFollowed] = useState(false);
 
   const { uid } = router.query;
 
-//   useEffect(() => {
-//     let unsubscribe;
-//     if (session) {
-//       const q = query(
-//         collection(db, "posts"),
-//         where("user_id", "==", uid),
-//         orderBy("timestamp", "desc")
-//       );
-//       unsubscribe = onSnapshot(q, (snapshot) => {
-//         setPosts(snapshot.docs);
-//         setIsLoading(false);
-//       });
-//     } else {
-//       setIsLoading(false);
-//     }
-//     return () => unsubscribe && unsubscribe();
-//   }, [session]);
 
 useEffect(() => {
     const getUser = async () => {
@@ -71,6 +59,43 @@ useEffect(() => {
     };
     getUser();
   }, [uid]);
+
+
+  useEffect(() => {
+    const getUserFollowers = async () => {
+      if (uid) {
+        const followersQuery = query(
+          collection(db, "userFollowers", uid, "followers")
+        );
+        const followingQuery = query(
+          collection(db, "userFollowers", uid, "following")
+        );
+
+  
+        const unsubscribeFollowers = onSnapshot(followersQuery, (snapshot) => {
+          const count = snapshot.docs.length;
+          console.log(count)
+          setFollowersCount(count);
+        });
+  
+        const unsubscribeFollowing = onSnapshot(followingQuery, (snapshot) => {
+          const count = snapshot.docs.length;
+          console.log(count)
+
+          setFollowingCount(count);
+        });
+  
+        return () => {
+          unsubscribeFollowers();
+          unsubscribeFollowing();
+        };
+      }
+    };
+  
+    getUserFollowers();
+  }, [uid]);
+
+
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -99,7 +124,7 @@ useEffect(() => {
               </div>
             </div>
               <div className="flex flex-col p-3">
-                <Buttons />
+              <Buttons uid={uid} currentUserId={session?.user?.uid} />
               </div>
             <div className="flex justify-between mt-8">
               <div className="text-center">
@@ -110,13 +135,13 @@ useEffect(() => {
               </div>
               <div className="text-center">
                 <h2 className="font-bold text-lg text-white dark:text-white">
-                  10.3M
+                  {followersCount}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">Followers</p>
               </div>
               <div className="text-center">
                 <h2 className="font-bold text-lg text-white dark:text-white">
-                  0
+                  {followingCount}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">Following</p>
               </div>

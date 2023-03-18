@@ -30,7 +30,7 @@ const Likes = () => {
   useEffect(() => {
     let unsubscribe;
     if (session) {
-      const userLikesRef = collection(db, "users", session.user.uid, "likes");
+      const userLikesRef = collection(db, "usersLikes", session.user.uid, "likes");
       unsubscribe = onSnapshot(userLikesRef, async (snapshot) => {
         let newLikes = [];
         for (const docChange of snapshot.docChanges()) {

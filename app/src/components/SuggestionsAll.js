@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 
 
 
-function Suggestions() {
+function SuggestionsAll() {
     const [suggestions, setSuggestions] = useState([]);
     const router = useRouter();
 
     useEffect(() => {
-        const suggestions = [...Array(5)].map((_, i) => ({
+        const suggestions = [...Array(35)].map((_, i) => ({
             id: i,
             username: faker.internet.userName(),
             company: faker.company.companyName(),
@@ -24,8 +24,8 @@ function Suggestions() {
     <div className="mt-4 ml-10">
         <div className="flex justify-between text-sm mb-5">
             <h3 className="text-sm font-bold text-gray-400">Suggestions for you.</h3>
-            <button    onClick={() => router.push("/suggestions")}
-              className="text-gray-600 font-semibold">See All</button>
+            {/* <button    onClick={() => router.push("/suggestions")}
+              className="text-gray-600 font-semibold">See All</button> */}
         </div>
         {suggestions.map((profile) => (
             <div key={profile.id} className="flex items-center justify-between mt-3">
@@ -50,4 +50,4 @@ function Suggestions() {
   )
 }
 
-export default Suggestions
+export default SuggestionsAll

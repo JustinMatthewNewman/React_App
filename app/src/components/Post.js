@@ -66,14 +66,14 @@ function Post({id, username, userimage, media, caption, user_id}) {
   const likePost = async () => {
     if (hasLiked) {
       await deleteDoc(doc(db, 'posts', id, "likes", session.user.uid))
-      await deleteDoc(doc(db, 'users', session.user.uid, 'likes', id))
+      await deleteDoc(doc(db, 'usersLikes', session.user.uid, 'likes', id))
 
     } else {
 
       await setDoc (doc(db, 'posts', id, 'likes', session.user.uid), {
         username: session.user.username,
       });
-      await setDoc (doc(db, 'users', session.user.uid, 'likes', id), {
+      await setDoc (doc(db, 'usersLikes', session.user.uid, 'likes', id), {
         pid: id,
       });
       
@@ -103,6 +103,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
       src={userimage} 
       className="rounded-full h-12 w-12 object-contain border p-1 mr-3" 
       alt="" 
+      onClick={() => router.push(`/userProfile?uid=${user_id}`)}
       />
 <p onClick={() => router.push(`/userProfile?uid=${user_id}`)} className="flex-1 font-bold">
   {username}
