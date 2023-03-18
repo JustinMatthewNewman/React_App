@@ -33,10 +33,13 @@ function Header() {
           onClick={() => router.push("/")}
           className="relative hidden lg:inline-grid w-24 cursor-pointer"
         >
-          {/* <Image src="http://links.papareact.com/ocw" 
-            layout="fill"
-            objectFit="contain"
-            /> */}
+          <Image
+        src="/logo.png"
+        alt="React logo"
+        width={50}
+        height={50}
+        className="flex center mt-1"
+      />
         </div>
 
         <div onClick={() => router.push("/")} className="flex items-center">
