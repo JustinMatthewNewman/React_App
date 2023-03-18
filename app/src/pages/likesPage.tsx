@@ -5,23 +5,15 @@ import Head from 'next/head'
 
 import Header from "../components/Header";
 import HeaderImage from '../components/HeaderImage';
-import Profile from '../components/MyProfile';
+import Likes from '../components/Likes';
 import Modal from "../components/Modal";
 
 
-const MyProfile = () => {
+
+const LikesPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-//   if (status === 'loading') {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (!session) {
-//     router.push("/login");
-//   }
-
-//   const user = session?.user;
 
 const { uid } = router.query;
 console.log(uid)
@@ -37,13 +29,12 @@ console.log(uid)
       </Head>
 
       <Header />
-      <Profile/>
-            {/** Modal */}
-            <Modal />
-
+      <Likes/>
+      {/** Modal */}
+      <Modal />
     </div>
     </>
   );
 };
 
-export default MyProfile;
+export default LikesPage;

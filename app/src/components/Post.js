@@ -55,11 +55,17 @@ function Post({id, username, userimage, media, caption, user_id}) {
   const likePost = async () => {
     if (hasLiked) {
       await deleteDoc(doc(db, 'posts', id, "likes", session.user.uid))
+      await deleteDoc(doc(db, 'users', session.user.uid, 'likes', id))
+
     } else {
 
       await setDoc (doc(db, 'posts', id, 'likes', session.user.uid), {
         username: session.user.username,
       });
+      await setDoc (doc(db, 'users', session.user.uid, 'likes', id), {
+        pid: id,
+      });
+      
     }
   }
 
@@ -137,7 +143,7 @@ function Post({id, username, userimage, media, caption, user_id}) {
             <PaperAirplaneIcon className="btn"/>
         </div>
 
-        <BookmarkIcon className="btn" />
+        {/* <BookmarkIcon className="btn" /> */}
     </div>
     )}
     

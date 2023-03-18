@@ -83,7 +83,9 @@ function Header() {
                 onClick={() => router.push("/myProfile")}
                 className="navBtn"
               />
-              <HeartIcon className="navBtn" />
+              <HeartIcon 
+              onClick={() => router.push("/likesPage")}
+              className="navBtn" />
 
               {/* <ThemeToggle/> */}
               <img

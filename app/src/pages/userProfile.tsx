@@ -6,6 +6,7 @@ import Head from 'next/head'
 import Header from "../components/Header";
 import HeaderImage from '../components/HeaderImage';
 import Profile from '../components/UserProfile';
+import Modal from "../components/Modal";
 
 
 const UserProfile = () => {
@@ -34,7 +35,8 @@ const UserProfile = () => {
 
       <Header />
       <Profile/>
-
+      {/** Modal */}
+      <Modal />
     </div>
     </>
   );
