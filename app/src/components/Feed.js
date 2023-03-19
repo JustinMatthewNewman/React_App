@@ -47,7 +47,7 @@ function Feed() {
             {/*Section*/}
             <section className="col-span-2 mt-16"> 
                 {/*Storys */}
-                <Stories />
+                {/* <Stories /> */}
                 {/*Posts */}
                 <Posts />
             </section>
