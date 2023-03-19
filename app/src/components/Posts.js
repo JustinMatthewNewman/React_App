@@ -12,6 +12,7 @@ function Posts() {
           setPosts(snapshot.docs);
       }),
 [db]);
+console.log(posts)
 
   return (
     <div>

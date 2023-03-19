@@ -58,3 +58,33 @@ a {
     @apply h-7 hover:scale-125 cursor-pointer transition-all duration-150 ease-out;
   }
 }
+
+@keyframes heart-anim {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    color: #844fff;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(60);
+    color: #d92b5c;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-30px);
+    color: #ff4f78;
+  }
+}
+
+.animate-heart {
+  animation-name: heart-anim;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.heart-icon {
+  opacity: 0;
+  pointer-events: none;
+}
