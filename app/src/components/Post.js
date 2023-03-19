@@ -167,10 +167,16 @@ function Post({ id, username, userimage, media, caption, user_id }) {
       {/* media */}
       <div className="relative">
       <img
-        onDoubleClick={likePost}
-        src={media}
-        className="object-cover w-full"
-      />
+  onDoubleClick={() => {
+    if (session) {
+      likePost();
+    } else {
+      handleSignInClick();
+    }
+  }}
+  src={media}
+  className="object-cover w-full"
+/>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
       <HeartIconFilled
