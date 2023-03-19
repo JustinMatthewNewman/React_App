@@ -174,7 +174,7 @@ function Post({ id, username, userimage, media, caption, user_id }) {
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
       <HeartIconFilled
-          className={`btn h-1 w-1 text-purple-500 heart-icon ${
+          className={`btn text-white heart-icon ${
             isAnimating ? 'animate-heart' : ''
           }`}
         />

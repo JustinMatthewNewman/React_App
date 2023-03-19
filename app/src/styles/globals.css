@@ -63,17 +63,14 @@ a {
   0% {
     opacity: 0;
     transform: scale(0.8);
-    color: #844fff;
   }
   50% {
     opacity: 1;
-    transform: scale(60);
-    color: #d92b5c;
+    transform: scale(7);
   }
   100% {
     opacity: 0;
-    transform: scale(0.8) translateY(-30px);
-    color: #ff4f78;
+    transform: scale(0.8) translateY(-300px);
   }
 }
 
