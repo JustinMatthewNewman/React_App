@@ -116,6 +116,8 @@ const Likes = () => {
                   className="w-full h-full object-cover"
                   src={like.data().image}
                   alt="Image 1"
+                  onClick={() => router.push(`/singlePost?postid=${like.id}`)}
+
                 />
           </div>
         ))}
