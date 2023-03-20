@@ -25,6 +25,8 @@ const MyProfile = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
+  
+
 
   useEffect(() => {
     let unsubscribe;
@@ -133,6 +135,7 @@ const MyProfile = () => {
                   className="w-full h-full object-cover"
                   src={post.data().image}
                   alt="Image 1"
+                  onClick={() => router.push(`/singlePost?postid=${post.id}`)}
                 />
                 </div>
               ))}

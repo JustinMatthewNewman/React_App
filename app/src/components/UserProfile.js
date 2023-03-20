@@ -102,6 +102,7 @@ useEffect(() => {
   }
 
   return (
+    
     <div className="h-screen">
 
         {/*Section*/}
@@ -159,6 +160,8 @@ useEffect(() => {
                   className="w-full h-full object-cover"
                   src={post.data().image}
                   alt="Image 1"
+                  onClick={() => router.push(`/singlePost?postid=${post.id}`)}
+
                 />
                 </div>
               ))}
