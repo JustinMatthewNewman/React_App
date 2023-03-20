@@ -22,8 +22,53 @@ import { modalState } from "../atoms/ModalAtom.js";
 const MyProfile = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { data: session } = useSession();
   const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);  const { data: session } = useSession();
+
+  const [follows, setFollows] = useState([]);
+  const [isFollowing, setHasFollowed] = useState(false);
+
+  const uid = session?.user?.uid;
+
+
+
+
+  useEffect(() => {
+    const getUserFollowers = async () => {
+      if (uid) {
+        const followersQuery = query(
+          collection(db, "userFollowers", uid, "followers")
+        );
+        const followingQuery = query(
+          collection(db, "userFollowers", uid, "following")
+        );
+
+  
+        const unsubscribeFollowers = onSnapshot(followersQuery, (snapshot) => {
+          const count = snapshot.docs.length;
+          console.log(count)
+          setFollowersCount(count);
+        });
+  
+        const unsubscribeFollowing = onSnapshot(followingQuery, (snapshot) => {
+          const count = snapshot.docs.length;
+          console.log(count)
+
+          setFollowingCount(count);
+        });
+  
+        return () => {
+          unsubscribeFollowers();
+          unsubscribeFollowing();
+        };
+      }
+    };
+  
+    getUserFollowers();
+  }, [uid]);
 
   
 
@@ -112,13 +157,13 @@ const MyProfile = () => {
               </div>
               <div className="text-center">
                 <h2 className="font-bold text-lg text-white dark:text-white">
-                  10.3M
+                {followersCount}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">Followers</p>
               </div>
               <div className="text-center">
                 <h2 className="font-bold text-lg text-white dark:text-white">
-                  0
+                {followingCount}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">Following</p>
               </div>

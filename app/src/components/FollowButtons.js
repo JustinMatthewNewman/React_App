@@ -85,9 +85,9 @@ const FollowButtons = ({uid, currentUserUid}) => {
       >
         {isFollowing ? "Unfollow" : "Follow"}
       </button>
-      <button className="bg-white text-gray-500 font-bold py-2 px-4 rounded-md border border-gray-500 hover:bg-gray-100">
+      {/* <button className="bg-white text-gray-500 font-bold py-2 px-4 rounded-md border border-gray-500 hover:bg-gray-100">
         Message
-      </button>
+      </button> */}
       <button
         className="bg-white text-gray-500 font-bold py-2 px-4 rounded-md border border-gray-500 hover:bg-gray-100"
         onClick={() => window.open(`mailto:${session?.user?.email}`)}

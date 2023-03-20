@@ -75,17 +75,25 @@ function Header() {
         {/* Right */}
 
         <div className="flex items-center justify-end space-x-4">
+        <div
+                className="relative navBtn"
+                onClick={() => router.push("/")} 
+              >
           <HomeIcon onClick={() => router.push("/")} className="navBtn" />
+          <div className="absolute -top-1 -right-2 text-xs w-4 h-4 rounded-full flex items-center justify-center animate-pulse text-white" style={{backgroundImage: "linear-gradient(45deg, #8B5CF6, #EC4899, #FFB946, #F1C21B)"}}>
+          •
+                </div>
+                </div>
           {session ? (
             <>
               <div
                 className="relative navBtn"
                 onClick={() => router.push("/dm")}
               >
-                <PaperAirplaneIcon className="navBtn rotate-45" />
+                {/* <PaperAirplaneIcon className="navBtn rotate-45" />
                 <div className="absolute -top-1 -right-2 text-xs w-4 h-4 rounded-full flex items-center justify-center animate-pulse text-white" style={{backgroundImage: "linear-gradient(45deg, #8B5CF6, #EC4899, #FFB946, #F1C21B)"}}>
                 †
-                </div>
+                </div> */}
               </div>
 
               <PlusCircleIcon
