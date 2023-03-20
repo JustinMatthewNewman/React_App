@@ -199,7 +199,7 @@ function Post({ id, username, userimage, media, caption, user_id }) {
             ) : (
               <HeartIconFilled onClick={likePost} className="btn" />
             )}
-            <ChatIcon className="btn" />
+            {/* <ChatIcon className="btn" /> */}
             {/* <PaperAirplaneIcon className="btn" onClick={handleClick} /> */}
           </div>
 
