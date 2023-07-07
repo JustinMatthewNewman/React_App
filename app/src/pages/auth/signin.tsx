@@ -28,27 +28,33 @@ function SignIn({ providers }: { providers: Object }) {
       <div className="h-screen bg-slate-800 flex flex-col items-center justify-center min-h-screen py-2 -mt-55 px-14 text-center">
         <div className="mt-16 relative">
           {/* <div className="mt-40 absolute top-0 left-0 right-0 z-50"> */}
-          {Object.values(providers).map((provider) => (
-            <div key={provider.name}>
-              <button
-                style={{ pointerEvents: "auto" }}
-                className="p-3 bg-white rounded-lg text-black"
-                onClick={() =>
-                  SignIntoProvider(provider.id, { callbackUrl: "/" })
-                }
-              >
-                <div className="flex items-center">
-                  <img alt='img' className="h-10 w-10" src="/google.png"></img> Sign in
-                  with {provider.name}
-                </div>
-              </button>
-              <p className="font-md italic text-white mt-16">{welcomeText}</p>
+          {providers ? (
+  Object.values(providers).map((provider) => (
+    <div key={provider.name}>
+      <button
+        style={{ pointerEvents: "auto" }}
+        className="p-3 bg-white rounded-lg text-black"
+        onClick={() =>
+          SignIntoProvider(provider.id, { callbackUrl: "/" })
+        }
+      >
+        <div className="flex items-center">
+          <img alt="img" className="h-10 w-10" src="/google.png"></img> Sign in
+          with {provider.name}
+        </div>
+      </button>
+      <p className="font-md italic text-white mt-16">{welcomeText}</p>
+    </div>
+  ))
+) : (
+  <div className="text-gray-100">
+    <p>Too many users signing in right now, Please refresh the page and try again.</p>
+  </div>
+)}
 
-            </div>
-          ))}
         </div>
       </div>
-      <div className="p-10">
+      <div className="p-10 text-gray-100">
 
       <dl>
   <div>
