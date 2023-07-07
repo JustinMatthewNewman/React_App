@@ -37,16 +37,6 @@
 
 ## :star2: About the Project
 
-<!-- Screenshots -->
-
-### :camera: Screenshots
-
-<div align="center">
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    <img src="https://raw.githubusercontent.com/JustinMatthewNewman/geoJson/main/song-gpt.png" alt="screenshot" />
-  </a>
-</div>
-
 ## [LIVE DEMO](https://text-to-song.vercel.app) 💥
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://text-to-song.vercel.app)
