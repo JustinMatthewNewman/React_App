@@ -1,6 +1,5 @@
 <div align="center">
 
-  <img src="https://drive.google.com/uc?export=download&id=1fj7OO7X2uFYOI0zM5ZfjYB27vdI43qEr" alt="logo" width="205" height="auto" />
 
   <h1>CSCODE.org</h1>
   
@@ -9,13 +8,6 @@
   </p>
   
   <!-- Badges -->
-
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    ![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)
-  </a>
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    ![](https://img.shields.io/badge/Maintained-Yes-indigo)
-  </a>
 
 </div>
 
@@ -38,15 +30,7 @@
 
 ## :star2: About the Project
 
-<!-- Screenshots -->
 
-### :camera: Screenshots
-
-<div align="center">
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    <img src="https://raw.githubusercontent.com/JustinMatthewNewman/geoJson/main/song-gpt.png" alt="screenshot" />
-  </a>
-</div>
 
 ## [LIVE DEMO](https://text-to-song.vercel.app) 💥
 
