@@ -9,13 +9,6 @@
   
   <!-- Badges -->
 
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    ![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)
-  </a>
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    ![](https://img.shields.io/badge/Maintained-Yes-indigo)
-  </a>
-
 </div>
 
 <br />
@@ -37,15 +30,7 @@
 
 ## :star2: About the Project
 
-<!-- Screenshots -->
 
-### :camera: Screenshots
-
-<div align="center">
-  <a href="https://text-to-song.vercel.app" target="_blank">
-    <img src="https://raw.githubusercontent.com/JustinMatthewNewman/geoJson/main/song-gpt.png" alt="screenshot" />
-  </a>
-</div>
 
 ## [LIVE DEMO](https://text-to-song.vercel.app) 💥
 
