@@ -14,7 +14,7 @@ function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'), limit(1));
+      const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'), limit(2));
       const snapshot = await onSnapshot(q, (querySnapshot) => {
         const newPosts = querySnapshot.docs.map((doc) => ({
           id: doc.id,
